@@ -16,6 +16,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
   libfribidi-dev \
   libgdal-dev \
   libproj-dev \
+  libgit2-dev \
   libudunits2-dev \
   libcairo2-dev \
   libxt-dev \
@@ -30,7 +31,7 @@ ENV CRAN_REPO="https://packagemanager.posit.co/cran/__linux__/jammy/latest"
 RUN R -e "install.packages(c('Seurat', 'tidyverse', 'Matrix', 'patchwork', 'remotes'), repos='${CRAN_REPO}')"
 
 # Install DoubletFinder from GitHub at the pinned commit
-RUN R -e "remotes::install_github('chris-mcginnis-ucsf/DoubletFinder@3b420df68b8e2a0cc6ebd4c5c1c7ea170464c97f', upgrade=FALSE, dependencies=FALSE)"
+RUN R -e "remotes::install_github('chris-mcginnis-ucsf/DoubletFinder@3b420df68b8e2a0cc6ebd4c5c1c7ea170464c97f', upgrade=FALSE, dependencies=TRUE)"
 
 WORKDIR /data
 
