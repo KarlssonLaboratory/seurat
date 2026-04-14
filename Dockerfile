@@ -22,6 +22,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
   libxt-dev \
   patch \
   git \
+  less \
   && rm -rf /var/lib/apt/lists/*
 
 # Use Posit Package Manager for faster binary installs
